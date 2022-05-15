@@ -2,12 +2,14 @@ let lastId = 1;
 
 const list = document.querySelector(".list");
 const form = document.querySelector(".form");
+const items = [];
+
 
 form.addEventListener("submit", ()=>{
     const data = getFormData();
     data.id = ++lastId;
-    const listItem = buildListItem(data);
-    list.append(listItem);
+    items.push(data);
+    renderItems();
 })
 
 function getFormData() {
@@ -31,4 +33,8 @@ function buildListItem(itemData) {
         </div>
     `;
     return elem;
+}
+
+function renderItems() {
+    list.replaceChildren(items.map(buildListItem));
 }
