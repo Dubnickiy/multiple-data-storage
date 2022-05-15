@@ -1,14 +1,24 @@
 let lastId = 1;
-const list = document.querySelector(".list");
 
+const list = document.querySelector(".list");
 const form = document.querySelector(".form");
+
 form.addEventListener("submit", ()=>{
+    const data = getFormData();
+    data.id = ++lastId;
+    const listItem = buildListItem(data);
+    list.append(listItem);
+})
+
+function getFormData() {
+    return Object.fromEntries( new FormData(form));
+}
+
+function buildListItem(itemData) {
     const elem = document.createElement("li");
     elem.classList.add("list-item");
-    const data = Object.fromEntries( new FormData(form));
-    lastId++;
     elem.innerHTML = `
-        <div class="cell cell-id">${lastId}</div>
+        <div class="cell cell-id">${data.id}</div>
         <div class="cell cell-text">${data.text}</div>
         <div class="cell cell-flag">
             <input type="checkbox" ${data.flag && "checked"}>
@@ -20,6 +30,5 @@ form.addEventListener("submit", ()=>{
             <button>🗑️</button>
         </div>
     `;
-    list.append(elem);
-
-})
+    return elem;
+}
