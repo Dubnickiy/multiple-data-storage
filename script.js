@@ -20,13 +20,13 @@ function buildListItem(itemData) {
     const elem = document.createElement("li");
     elem.classList.add("list-item");
     elem.innerHTML = `
-        <div class="cell cell-id">${data.id}</div>
-        <div class="cell cell-text">${data.text}</div>
+        <div class="cell cell-id">${itemData.id}</div>
+        <div class="cell cell-text">${itemData.text}</div>
         <div class="cell cell-flag">
-            <input type="checkbox" ${data.flag && "checked"}>
+            <input type="checkbox" ${itemData.flag && "checked"}>
         </div>
-        <div class="cell cell-number">${data.number}</div>
-        <div class="cell cell-date">${data.date}</div>
+        <div class="cell cell-number">${itemData.number}</div>
+        <div class="cell cell-date">${itemData.date}</div>
         <div class="cell cell-buttons"> 
             <button>✏</button>
             <button>🗑️</button>
@@ -36,5 +36,5 @@ function buildListItem(itemData) {
 }
 
 function renderItems() {
-    list.replaceChildren(items.map(buildListItem));
+    list.replaceChildren(...items.map(buildListItem));
 }
