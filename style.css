@@ -1,40 +1,36 @@
-body{
-  color: #000000;
-}
-
-.wrapper{
-    /* display:flex; */
+.wrapper {
     max-width: 800px;
     margin: 10vh auto;
-
 }
-.form{
+
+.form {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px auto;
 }
-.switcher{
+
+.switcher {
     position: fixed;
     top: 30%;
     right: 10px;
 }
 
-.switcher-form{
+.switcher-form {
     display: flex;
     flex-direction: column;
     background-color: lightgoldenrodyellow;
     padding: 10px;
 }
 
-.list{
+.list {
     display: flex;
     flex-direction: column;
-    /* width: 60vw; */
     list-style: none;
+    gap: 13px;
 }
 
-.list-item{
+.list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,22 +39,27 @@ body{
     border-radius: 2px;
 }
 
-.cell-id{
+.cell-id {
     width: 20px;
 }
-.cell-date{
+
+.cell-date {
     width: 100px;
 }
-.cell-flag{
-    width:20px;
+
+.cell-flag {
+    width: 20px;
 }
-.cell-buttons{
+
+.cell-buttons {
     width: 70px;
 }
-.cell-number{
+
+.cell-number {
     width: 70px;
     text-align: center;
 }
-.cell-text{
+
+.cell-text {
     flex-grow: 1;
 }

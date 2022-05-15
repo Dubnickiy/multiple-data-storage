@@ -5,31 +5,25 @@ const form = document.querySelector(".form");
 const switcherForm = document.querySelector(".switcher-form");
 const items = [];
 
-function handleDataInDom(data) {
-  const listItem = buildListItem(data);
-  list.append(listItem);
-}
-
-function handleDataInMemory(data) {
-  items.push(data);
-  renderItems();
-}
-
-const VALUES = {
-  dom: 'DOM',
-  memory: 'FrontMemory',
-};
-
 const handlers = {
-  [VALUES.dom]: handleDataInDom,
-  [VALUES.memory]: handleDataInMemory,
+  dom() {
+    const data = getFormData();
+    data.id = ++lastId;
+    const listItem = buildListItem(data);
+    list.append(listItem);
+  },
+  frontMemory() {
+    const data = getFormData();
+    data.id = ++lastId;
+    items.push(data);
+    renderItems();
+  },
 }
 
 form.addEventListener("submit", function () {
-  const data = getFormData();
-  data.id = ++lastId;
-  handlers[switcherForm.mode.value](data);
+  handlers[switcherForm.mode.value]();
 });
+
 
 function getFormData() {
   return Object.fromEntries(new FormData(form));
