@@ -1,0 +1,47 @@
+.wrapper{
+    max-width: 800px;
+    margin: 10vh auto;
+
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    /* width: 60vw; */
+    list-style: none;
+}
+
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: lightgrey;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.cell-id{
+    width: 20px;
+}
+.cell-date{
+    width: 100px;
+}
+.cell-flag{
+    width:20px;
+}
+.cell-buttons{
+    width: 70px;
+}
+.cell-number{
+    width: 70px;
+    text-align: center;
+}
+.cell-text{
+    flex-grow: 1;
+}
